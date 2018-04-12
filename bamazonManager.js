@@ -68,7 +68,7 @@ var newQuestions = [
         type: 'input',
         name: 'q3',
         message: "What is the price of the product?",
-        validate: function validateq2(name){
+        validate: function validateq3(name){
             return name !== '';
         }
     },
@@ -76,7 +76,7 @@ var newQuestions = [
         type: 'input',
         name: 'q4',
         message: "How many of the product is in stock?",
-        validate: function validateq2(name){
+        validate: function validateq4(name){
             return name !== '';
         }
     },
@@ -91,7 +91,7 @@ function start() {
             case 'View Low Inventory Items':
             lowInventory()
             break;
-            case 'Add to Inventory' :
+            case 'Add to additional Product Inventory' :
             addInventory()
             break;
             case 'Add New Product' :
@@ -122,6 +122,7 @@ function lowInventory() {
 }
 
 function addInventory() {
+    console.log("hi")
     prompt(questions).then(function(answer) {
         id = answer.addq1[0]
         quantity = answer.addq2[0]
@@ -151,12 +152,11 @@ function addProduct() {
         newPrice = answer.q3[0];
         newQuantity = answer.q4[0];
         console.log(answer.q4[0])
-        console.log(id)
-        updateDB()
+        addDB()
     })
 }
 
-function updateDB(){
+function addDB(){
     connection.query('INSERT INTO products(product_name,department_name,price,stock_quantity) VALUES ("'+ newName+', "'+ newDepartment +'", '+ newPrice +', '+ newQuantity +')', function(e, r){
         if(e) throw e;
     console.log(r)

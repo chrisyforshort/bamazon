@@ -66,7 +66,6 @@ function updateDB() {
             })
             connection.query('SELECT * FROM products WHERE item_id='+ id +' ', function(e, r){
             if(e) throw e;
-            console.log(r)
             })
         }
     })
