@@ -35,7 +35,7 @@ function startCustomer(){
     connection.query('SELECT * FROM products', function(e, r){
         if(e) throw e;
         for(var i=0; i<r.length; i++){
-            console.log("Item ID #" + r[i].item_id + ": \n\t Product Name: " + r[i].product_name + " \n\t Department: " + r[i].department_name + "\n\t Price: $" + r[i].price + ".00")
+            console.log("Item ID #" + r[i].item_id + ": \n\t Product Name: " + r[i].product_name + " \n\t Department: " + r[i].department_name + "\n\t Price: $" + r[i].price + ".00" + "\n\t Product Quantity: " + r[i].stock_quantity)
         }
         questions()
     })

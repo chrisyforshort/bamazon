@@ -157,7 +157,7 @@ function addProduct() {
 }
 
 function addDB(){
-    connection.query('INSERT INTO products(product_name,department_name,price,stock_quantity) VALUES ("'+ newName+', "'+ newDepartment +'", '+ newPrice +', '+ newQuantity +')', function(e, r){
+    connection.query('INSERT INTO products (product_name,department_name,price,stock_quantity) VALUES ("'+ newName+', "'+ newDepartment +'", '+ newPrice +', '+ newQuantity +')', function(e, r){
         if(e) throw e;
     console.log(r)
     console.log("New Item added.")
